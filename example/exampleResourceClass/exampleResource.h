@@ -14,7 +14,7 @@ namespace resources {
 		ShaderProgram(const std::string& vPath, const std::string& fPath);
 
 		bool load(const std::string& vPath, const std::string& fPath);
-		bool load() override;
+		bool load(const std::string& path) override;
 
 		bool unload() override;
 

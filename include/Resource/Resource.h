@@ -7,7 +7,7 @@ namespace fs = std::filesystem;
 namespace resources {
 	class Resource {
 	public:
-		virtual bool load() = 0;
+		virtual bool load(const std::string& path) = 0;
 		virtual bool unload() = 0;
 
 	protected:

@@ -1,20 +1,17 @@
 #include <memory>
+#include <string>
+#include <unordered_map>
 
 namespace resources {
-    template<typename T>
-    class ResourceHandle {
-        std::shared_ptr<T> resource;
+    class Resource;
+
+    class ResourceManager {
+        static std::unordered_map<std::string, std::shared_ptr<Resource>> resources_;
 
     public:
-        ResourceHandle() = default;
-        ResourceHandle(std::shared_ptr<T> resource) : resource(resource) {}
+        template<typename T>
+        static std::shared_ptr<T> load(const std::string& path);
 
-        T* get() { return resource.get(); }
-        T* operator->() const { return resource.get(); }
-        T& operator*() const { return *resource; }
-
-        bool operator==(const ResourceHandle& other) const {
-            return resource == other.resource;
-        }
+        static void unload(const std::string& path);
     };
 }

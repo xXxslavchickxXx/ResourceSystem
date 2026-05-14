@@ -17,7 +17,7 @@ namespace resources {
 		return true;
 	}
 
-	bool ShaderProgram::load() {
+	bool ShaderProgram::load(const std::string& path) {
 		if (vertexPath.empty() || fragmentPath.empty()) {
 			std::cerr << "ошибка, какой то из путей не задан!\n";
 			return false;
