@@ -9,12 +9,12 @@ namespace resources {
         ResourceHandle() = default;
         ResourceHandle(std::shared_ptr<T> resource) : resource(resource) {}
 
-        T* get() { return resource_.get(); }
+        T* get() { return resource.get(); }
         T* operator->() const { return resource.get(); }
         T& operator*() const { return *resource; }
 
         bool operator==(const ResourceHandle& other) const {
-            return resource_ == other.resource;
+            return resource == other.resource;
         }
     };
 }
