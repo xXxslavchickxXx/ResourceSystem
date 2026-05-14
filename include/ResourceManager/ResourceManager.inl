@@ -13,7 +13,7 @@ namespace resources {
 
         // 3. Загружаем
         if (!resource->load(path)) {
-            return ResourceHandle<T>();  // пустой хендл при ошибке
+            return std::shared_ptr<T>();  // пустой хендл при ошибке
         }
 
         // 4. Сохраняем в кэш

@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # ============ Библиотеки ============
 
 set(RESOURCE_LIB_CPP
-    include/ResourceManager/ResourceSpecializations.cpp
+    src/ResourceManager/ResourceSpecializations.cpp
 )
 set(RESOURCE_LIB_HEADERS
     include/Resource/Resource.h
