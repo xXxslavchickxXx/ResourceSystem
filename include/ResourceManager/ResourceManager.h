@@ -6,7 +6,7 @@ namespace resources {
     class Resource;
 
     class ResourceManager {
-        static std::unordered_map<std::string, std::shared_ptr<Resource>> resources_;
+        static std::unordered_map<std::string, std::shared_ptr<Resource>> resources;
 
     public:
         template<typename T>
@@ -15,3 +15,5 @@ namespace resources {
         static void unload(const std::string& path);
     };
 }
+
+#include "ResourceManager.inl"

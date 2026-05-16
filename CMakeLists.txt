@@ -23,7 +23,7 @@ add_library(RSystemLib STATIC
 target_include_directories(RSystemLib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-
+ 
 option(RESOURCE_SYSTEM_EXAMPLE OFF)
 if(RESOURCE_SYSTEM_EXAMPLE)
     # 2. Библиотека с шейдерами

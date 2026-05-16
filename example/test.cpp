@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <exampleResource.h>
+#include <ResourceManager/ResourceManager.h>
 
 #include <GLFW/glfw3.h>
 
@@ -17,6 +18,8 @@ int main() {
 
 	resources::ShaderProgram program;
 	program.load("assets/shaders/testV.glsl", "assets/shaders/testF.glsl");
+
+    auto ptr = resources::ResourceManager::load<resources::ShaderProgram>("assets/shaders/testV.glsl|assets/shaders/testF.glsl");
 
     while (true) {
         glClear(GL_COLOR_BUFFER_BIT);

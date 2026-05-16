@@ -1,33 +1,31 @@
-#include <ResourceManager/ResourceManager.h>
-
 namespace resources {
+    inline std::unordered_map<std::string, std::shared_ptr<Resource>> ResourceManager::resources;
+
     template<typename T>
     std::shared_ptr<T> ResourceManager::load(const std::string& path) {
-        auto it = resources_.find(path);
+        auto it = resources.find(path);
 
-        if (it != resources_.end()) {
-            return it->second;
+        if (it != resources.end()) {
+            return std::static_pointer_cast<T>(it->second);
         }
 
         auto resource = std::make_shared<T>();
 
-        // 3. Загружаем
         if (!resource->load(path)) {
-            return std::shared_ptr<T>();  // пустой хендл при ошибке
+            return std::shared_ptr<T>();
         }
 
-        // 4. Сохраняем в кэш
-        resources_[path] = resource;
+        resources[path] = resource;
 
         return resource;
     }
 
     void ResourceManager::unload(const std::string& path) {
-        auto it = resources_.find(path);
+        auto it = resources.find(path);
 
-        if (it != resources_.end()) {
+        if (it != resources.end()) {
             it->second.reset();
-            resources_.erase(path);
+            resources.erase(path);
         }
     }
 }
